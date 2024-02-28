@@ -49,17 +49,50 @@ elif categoria == 1:
 
 elif categoria == 2:
     categoria = "postres"
+    
+else:
+    print("Esta categoria no existe")
 
 for i, val in enumerate(panaderia[categoria]["productos"]): 
     nombre = val["nombre"]
     valor = val["valor"]
     print(f"""{i} {nombre}, el valor es: {valor}""")
 
-else:
-    print("Este producto no existe: ")
-
 producto = int(input("Ingrese el numero del producto que quiera comprar: "))
 
-seleccionarProducto = panaderia[categoria][producto]
+seleccionarProducto = panaderia[categoria]["productos"][producto]
 seleccionarProductoNombre = seleccionarProducto["nombre"]
-seleccionarProductoValor = producto["valor"]
+seleccionarProductoValor = seleccionarProducto["valor"]
+
+print (f"""Haz seleccionado {seleccionarProductoNombre}, el valor es: {seleccionarProductoValor}""")
+
+
+if seleccionarProductoNombre == "Donas":
+    print("Existe una promocion en este producto, la cual es: \nCompre un six pack de donas y lleve otro totalmente gratis")
+    sixPack = 18000
+   
+    promo = input("Desea la promocion?: ")
+    
+    if promo.lower() == "si":
+        precio = 18000
+        dinero = int(input("Ingrese su dinero: "))
+        if dinero >= precio:
+            cambio = dinero - precio
+            print("Su cambio es:", cambio)
+            
+    else:     
+        precio = seleccionarProductoValor
+        dinero = int(input("Ingrese su dinero: "))
+        if dinero >= precio:
+            cambio = dinero - precio
+            print("Su cambio es:", cambio)
+        else:
+            print("No le alcanza el dinero, vuelva mas tarde")
+else:
+    precio = seleccionarProductoValor
+    dinero = int(input("Ingrese su dinero: "))
+    if dinero >= precio:
+        cambio = dinero - precio
+        print("Su cambio es:", cambio)
+    else:
+        print("No le alcanza el dinero, vuelva mas tarde")
