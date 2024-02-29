@@ -68,17 +68,18 @@ print (f"""Haz seleccionado {seleccionarProductoNombre}, el valor es: {seleccion
 
 
 if seleccionarProductoNombre == "Donas":
-    print("Existe una promocion en este producto, la cual es: \nCompre un six pack de donas y lleve otro totalmente gratis")
     sixPack = 18000
+    print("Existe una promocion en este producto, la cual es: \nCompre un six pack de donas y lleve otro totalmente gratis por el valor de",sixPack)
    
     promo = input("Desea la promocion?: ")
     
     if promo.lower() == "si":
         precio = 18000
+        print("El total a pagar es",sixPack)
         dinero = int(input("Ingrese su dinero: "))
         if dinero >= precio:
             cambio = dinero - precio
-            print("Su cambio es:", cambio)
+            print("Su cambio es:", cambio,"\n-----Gracias por su compra-----")
             
     else:
         cantidad = int(input("Ingrese la cantidad: "))
